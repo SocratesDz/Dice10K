@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0kyw2f1lxeug"]
+
+[ext_resource type="Script" path="res://die.gd" id="1_0laps"]
+[ext_resource type="Texture2D" uid="uid://crv7pj287kbob" path="res://icon.svg" id="1_qsvqu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_auvbn"]
+bounce = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jcm5"]
+albedo_texture = ExtResource("1_qsvqu")
+uv1_scale = Vector3(1.8, 1.8, 1.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ikmbf"]
+lightmap_size_hint = Vector2i(5, 7)
+material = SubResource("StandardMaterial3D_0jcm5")
+size = Vector3(0.16, 0.16, 0.16)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c4kha"]
+points = PackedVector3Array(0.08, 0.08, 0.08, 0.08, 0.08, -0.08, -0.08, 0.08, 0.08, 0.08, -0.08, 0.08, 0.08, -0.08, -0.08, -0.08, 0.08, -0.08, -0.08, -0.08, 0.08, -0.08, -0.08, -0.08)
+
+[node name="Die" type="RigidBody3D"]
+mass = 0.04
+physics_material_override = SubResource("PhysicsMaterial_auvbn")
+script = ExtResource("1_0laps")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ikmbf")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_c4kha")
+
+[node name="Faces" type="Node3D" parent="."]
+
+[node name="RayCast3D1" type="RayCast3D" parent="Faces"]
+target_position = Vector3(0, 1, 0)
+collide_with_bodies = false
+
+[node name="RayCast3D2" type="RayCast3D" parent="Faces"]
+target_position = Vector3(-1, 0, 0)
+
+[node name="RayCast3D3" type="RayCast3D" parent="Faces"]
+target_position = Vector3(0, 0, 1)
+
+[node name="RayCast3D4" type="RayCast3D" parent="Faces"]
+target_position = Vector3(0, 0, -1)
+
+[node name="RayCast3D5" type="RayCast3D" parent="Faces"]
+target_position = Vector3(1, 0, 0)
+
+[node name="RayCast3D6" type="RayCast3D" parent="Faces"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://345ud6505tyw"]
+
+[ext_resource type="PackedScene" uid="uid://dmmob7v87o5e5" path="res://board.tscn" id="1_854io"]
+[ext_resource type="Script" path="res://game.gd" id="1_p874v"]
+[ext_resource type="PackedScene" uid="uid://d0kyw2f1lxeug" path="res://die.tscn" id="2_82f15"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_p874v")
+
+[node name="Board" parent="." instance=ExtResource("1_854io")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.62205, 0.782977, 0, -0.782977, 0.62205, 0, 1.18728, 0.970814)
+current = true
+fov = 124.7
+
+[node name="DirectionalLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 1.05526, 0.256072)
+light_energy = 3.0
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.14294, 0.989731, 0, -0.989731, -0.14294, 0, 0, 0)
+
+[node name="Dice" type="Node3D" parent="."]
+
+[node name="Die" parent="Dice" instance=ExtResource("2_82f15")]
+transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, 0, 2.62014, 0)
+
+[node name="Die2" parent="Dice" instance=ExtResource("2_82f15")]
+transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, -0.257939, 2.62014, 0)
+
+[node name="Die3" parent="Dice" instance=ExtResource("2_82f15")]
+transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, 0.267304, 2.62014, 0)
+
+[node name="Die4" parent="Dice" instance=ExtResource("2_82f15")]
+transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, 0, 2.62014, 0.328751)
+
+[node name="Die5" parent="Dice" instance=ExtResource("2_82f15")]
+transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, -0.269491, 2.62014, 0.317605)
+
+[node name="Die6" parent="Dice" instance=ExtResource("2_82f15")]
+transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, 0.277925, 2.62014, 0.301308)
+
+[node name="ThrowPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56594, 1.11842)

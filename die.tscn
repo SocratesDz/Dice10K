@@ -19,7 +19,7 @@ size = Vector3(0.16, 0.16, 0.16)
 points = PackedVector3Array(0.08, 0.08, 0.08, 0.08, 0.08, -0.08, -0.08, 0.08, 0.08, 0.08, -0.08, 0.08, 0.08, -0.08, -0.08, -0.08, 0.08, -0.08, -0.08, -0.08, 0.08, -0.08, -0.08, -0.08)
 
 [node name="Die" type="RigidBody3D"]
-mass = 0.04
+mass = 0.4
 physics_material_override = SubResource("PhysicsMaterial_auvbn")
 script = ExtResource("1_0laps")
 

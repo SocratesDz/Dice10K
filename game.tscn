@@ -10,9 +10,8 @@ script = ExtResource("1_p874v")
 [node name="Board" parent="." instance=ExtResource("1_854io")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.62205, 0.782977, 0, -0.782977, 0.62205, 0, 1.18728, 0.970814)
+transform = Transform3D(1, 0, 0, 0, 0.62205, 0.782977, 0, -0.782977, 0.62205, 0, 2.50689, 2.12781)
 current = true
-fov = 124.7
 
 [node name="DirectionalLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 1.05526, 0.256072)

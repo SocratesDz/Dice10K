@@ -1,6 +1,8 @@
 class_name Die
 extends RigidBody3D
 
+signal stopped
+
 @onready var faces = $Faces
 @onready var face_value_map: Dictionary = {
 	$Faces/RayCast3D1: 1,
@@ -11,12 +13,12 @@ extends RigidBody3D
 	$Faces/RayCast3D6: 6
 }
 
-var cast = false
-
+var thrown = false
 
 func _physics_process(delta):
-	if not cast and stopped_moving():
-		cast = true
+	if thrown and stopped_moving():
+		stopped.emit()
+		thrown = false
 
 ## Return the value of the dice. If no face is strictly up, returns 0.
 func get_value() -> int:

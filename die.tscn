@@ -36,7 +36,6 @@ shape = SubResource("ConvexPolygonShape3D_c4kha")
 
 [node name="RayCast3D1" type="RayCast3D" parent="Faces"]
 target_position = Vector3(0, 1, 0)
-collide_with_bodies = false
 
 [node name="RayCast3D2" type="RayCast3D" parent="Faces"]
 target_position = Vector3(-1, 0, 0)

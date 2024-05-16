@@ -25,7 +25,7 @@ func get_value() -> int:
 	var face_up: RayCast3D = null
 	for raycast in faces.get_children():
 		var ray_cast_direction = to_global(raycast.target_position)
-		if (ray_cast_direction - Vector3.UP).length_squared() < 1:
+		if ray_cast_direction.distance_to(global_position + Vector3.UP) < 1:
 			face_up = raycast
 	if face_up:
 		return face_value_map[face_up]

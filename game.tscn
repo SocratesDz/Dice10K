@@ -1,8 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://345ud6505tyw"]
+[gd_scene load_steps=13 format=3 uid="uid://345ud6505tyw"]
 
 [ext_resource type="PackedScene" uid="uid://dmmob7v87o5e5" path="res://board.tscn" id="1_854io"]
 [ext_resource type="Script" path="res://game.gd" id="1_p874v"]
 [ext_resource type="PackedScene" uid="uid://d0kyw2f1lxeug" path="res://die.tscn" id="2_82f15"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5a2gb"]
+size = Vector3(0.2, 3, 6)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wpil2"]
+data = PackedVector3Array(-0.1, 1.5, 3, 0.1, 1.5, 3, -0.1, -1.5, 3, 0.1, 1.5, 3, 0.1, -1.5, 3, -0.1, -1.5, 3, 0.1, 1.5, -3, -0.1, 1.5, -3, 0.1, -1.5, -3, -0.1, 1.5, -3, -0.1, -1.5, -3, 0.1, -1.5, -3, 0.1, 1.5, 3, 0.1, 1.5, -3, 0.1, -1.5, 3, 0.1, 1.5, -3, 0.1, -1.5, -3, 0.1, -1.5, 3, -0.1, 1.5, -3, -0.1, 1.5, 3, -0.1, -1.5, -3, -0.1, 1.5, 3, -0.1, -1.5, 3, -0.1, -1.5, -3, 0.1, 1.5, 3, -0.1, 1.5, 3, 0.1, 1.5, -3, -0.1, 1.5, 3, -0.1, 1.5, -3, 0.1, 1.5, -3, -0.1, -1.5, 3, 0.1, -1.5, 3, -0.1, -1.5, -3, 0.1, -1.5, 3, 0.1, -1.5, -3, -0.1, -1.5, -3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qpvr2"]
+size = Vector3(3, 3, 0.2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oi5ip"]
+data = PackedVector3Array(-1.5, 1.5, 0.1, 1.5, 1.5, 0.1, -1.5, -1.5, 0.1, 1.5, 1.5, 0.1, 1.5, -1.5, 0.1, -1.5, -1.5, 0.1, 1.5, 1.5, -0.1, -1.5, 1.5, -0.1, 1.5, -1.5, -0.1, -1.5, 1.5, -0.1, -1.5, -1.5, -0.1, 1.5, -1.5, -0.1, 1.5, 1.5, 0.1, 1.5, 1.5, -0.1, 1.5, -1.5, 0.1, 1.5, 1.5, -0.1, 1.5, -1.5, -0.1, 1.5, -1.5, 0.1, -1.5, 1.5, -0.1, -1.5, 1.5, 0.1, -1.5, -1.5, -0.1, -1.5, 1.5, 0.1, -1.5, -1.5, 0.1, -1.5, -1.5, -0.1, 1.5, 1.5, 0.1, -1.5, 1.5, 0.1, 1.5, 1.5, -0.1, -1.5, 1.5, 0.1, -1.5, 1.5, -0.1, 1.5, 1.5, -0.1, -1.5, -1.5, 0.1, 1.5, -1.5, 0.1, -1.5, -1.5, -0.1, 1.5, -1.5, 0.1, 1.5, -1.5, -0.1, -1.5, -1.5, -0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k77sc"]
+size = Vector3(3, 3, 0.2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3ljo4"]
+data = PackedVector3Array(-1.5, 1.5, 0.1, 1.5, 1.5, 0.1, -1.5, -1.5, 0.1, 1.5, 1.5, 0.1, 1.5, -1.5, 0.1, -1.5, -1.5, 0.1, 1.5, 1.5, -0.1, -1.5, 1.5, -0.1, 1.5, -1.5, -0.1, -1.5, 1.5, -0.1, -1.5, -1.5, -0.1, 1.5, -1.5, -0.1, 1.5, 1.5, 0.1, 1.5, 1.5, -0.1, 1.5, -1.5, 0.1, 1.5, 1.5, -0.1, 1.5, -1.5, -0.1, 1.5, -1.5, 0.1, -1.5, 1.5, -0.1, -1.5, 1.5, 0.1, -1.5, -1.5, -0.1, -1.5, 1.5, 0.1, -1.5, -1.5, 0.1, -1.5, -1.5, -0.1, 1.5, 1.5, 0.1, -1.5, 1.5, 0.1, 1.5, 1.5, -0.1, -1.5, 1.5, 0.1, -1.5, 1.5, -0.1, 1.5, 1.5, -0.1, -1.5, -1.5, 0.1, 1.5, -1.5, 0.1, -1.5, -1.5, -0.1, 1.5, -1.5, 0.1, 1.5, -1.5, -0.1, -1.5, -1.5, -0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eve4s"]
+size = Vector3(0.2, 3, 6)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vqoud"]
+data = PackedVector3Array(-0.1, 1.5, 3, 0.1, 1.5, 3, -0.1, -1.5, 3, 0.1, 1.5, 3, 0.1, -1.5, 3, -0.1, -1.5, 3, 0.1, 1.5, -3, -0.1, 1.5, -3, 0.1, -1.5, -3, -0.1, 1.5, -3, -0.1, -1.5, -3, 0.1, -1.5, -3, 0.1, 1.5, 3, 0.1, 1.5, -3, 0.1, -1.5, 3, 0.1, 1.5, -3, 0.1, -1.5, -3, 0.1, -1.5, 3, -0.1, 1.5, -3, -0.1, 1.5, 3, -0.1, -1.5, -3, -0.1, 1.5, 3, -0.1, -1.5, 3, -0.1, -1.5, -3, 0.1, 1.5, 3, -0.1, 1.5, 3, 0.1, 1.5, -3, -0.1, 1.5, 3, -0.1, 1.5, -3, 0.1, 1.5, -3, -0.1, -1.5, 3, 0.1, -1.5, 3, -0.1, -1.5, -3, 0.1, -1.5, 3, 0.1, -1.5, -3, -0.1, -1.5, -3)
+
+[sub_resource type="Environment" id="Environment_4vi5i"]
+ambient_light_source = 3
+ambient_light_color = Color(0.171875, 0.171875, 0.171875, 1)
+tonemap_mode = 3
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_p874v")
@@ -14,8 +43,8 @@ transform = Transform3D(1, 0, 0, 0, 0.261701, 0.965149, 0, -0.965149, 0.261701, 
 current = true
 
 [node name="DirectionalLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 1.05526, 0.256072)
-light_energy = 3.0
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.05526, -0.343928)
+spot_angle = 66.7518
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.14294, 0.989731, 0, -0.989731, -0.14294, 0, 0, 0)
@@ -42,3 +71,48 @@ transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216
 
 [node name="ThrowPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56594, 1.11842)
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="EastWall2" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/EastWall2"]
+visible = false
+mesh = SubResource("BoxMesh_5a2gb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/EastWall2"]
+shape = SubResource("ConcavePolygonShape3D_wpil2")
+
+[node name="NorthWall" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/NorthWall"]
+visible = false
+mesh = SubResource("BoxMesh_qpvr2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/NorthWall"]
+shape = SubResource("ConcavePolygonShape3D_oi5ip")
+
+[node name="SouthWall4" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/SouthWall4"]
+visible = false
+mesh = SubResource("BoxMesh_k77sc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/SouthWall4"]
+shape = SubResource("ConcavePolygonShape3D_3ljo4")
+
+[node name="WestWall3" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WestWall3"]
+visible = false
+mesh = SubResource("BoxMesh_eve4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WestWall3"]
+shape = SubResource("ConcavePolygonShape3D_vqoud")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4vi5i")

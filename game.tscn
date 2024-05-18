@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://345ud6505tyw"]
+[gd_scene load_steps=22 format=3 uid="uid://345ud6505tyw"]
 
 [ext_resource type="PackedScene" uid="uid://dmmob7v87o5e5" path="res://board.tscn" id="1_854io"]
 [ext_resource type="Script" path="res://game.gd" id="1_p874v"]
@@ -35,6 +35,265 @@ ambient_light_source = 3
 ambient_light_color = Color(0.171875, 0.171875, 0.171875, 1)
 tonemap_mode = 3
 
+[sub_resource type="Animation" id="Animation_v6i5x"]
+resource_name = "end_game"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameEndPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%GameEndPanel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6nmcb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameEndPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameEndPanel/WinLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(104, 616)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameEndPanel/WinLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameEndPanel/PlayAgainButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%LoseLabel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(104, 608)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%LoseLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%GameEndPanel:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%WinLabel:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("%PlayAgainButton:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3tojp"]
+resource_name = "win_text_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameEndPanel/WinLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.615573, 0.615573),
+"update": 0,
+"values": [Vector2(104, 648), Vector2(104, 608)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameEndPanel/WinLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%WinLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pb17a"]
+resource_name = "show_play_again_btn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameEndPanel/PlayAgainButton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%PlayAgainButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6yxkk"]
+resource_name = "lose_text_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%LoseLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.615573, 0.615573),
+"update": 0,
+"values": [Vector2(104, 580), Vector2(104, 608)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%LoseLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%LoseLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjxnp"]
+_data = {
+"RESET": SubResource("Animation_6nmcb"),
+"end_game": SubResource("Animation_v6i5x"),
+"lose_text_animation": SubResource("Animation_6yxkk"),
+"show_play_again_btn": SubResource("Animation_pb17a"),
+"win_text_animation": SubResource("Animation_3tojp")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spo8o"]
+bg_color = Color(0.164706, 0.164706, 0.164706, 0.835294)
+
 [node name="Game" type="Node3D"]
 script = ExtResource("1_p874v")
 
@@ -54,22 +313,22 @@ transform = Transform3D(1, 0, 0, 0, -0.14294, 0.989731, 0, -0.989731, -0.14294, 
 [node name="Dice" type="Node3D" parent="."]
 
 [node name="Die1" parent="Dice" instance=ExtResource("2_82f15")]
-transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, 0, 2.62014, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.085, 0)
 
 [node name="Die2" parent="Dice" instance=ExtResource("2_82f15")]
-transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, -0.257939, 2.62014, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, -1, 4.37114e-08, 8.74228e-08, -8.74228e-08, 3.82137e-15, -1, -0.24, 0.085, 0)
 
 [node name="Die3" parent="Dice" instance=ExtResource("2_82f15")]
-transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, 0.267304, 2.62014, 0)
+transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, 0, -1, 8.74228e-08, -1, 3.82137e-15, 4.37114e-08, 0.24, 0.085, 0)
 
 [node name="Die4" parent="Dice" instance=ExtResource("2_82f15")]
-transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, 0, 2.62014, 0.328751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.085, 0.24)
 
 [node name="Die5" parent="Dice" instance=ExtResource("2_82f15")]
-transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, -0.269491, 2.62014, 0.317605)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.24, 0.085, 0.24)
 
 [node name="Die6" parent="Dice" instance=ExtResource("2_82f15")]
-transform = Transform3D(0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, 0.277925, 2.62014, 0.301308)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.24, 0.085, 0.24)
 
 [node name="ThrowPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56594, 1.11842)
@@ -123,6 +382,12 @@ environment = SubResource("Environment_4vi5i")
 stream = ExtResource("4_m1fk6")
 autoplay = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Control")
+libraries = {
+"": SubResource("AnimationLibrary_tjxnp")
+}
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -170,5 +435,83 @@ grow_vertical = 0
 theme = ExtResource("5_r7qh3")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 48
 text = "0"
+
+[node name="GameEndPanel" type="Panel" parent="Control"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_spo8o")
+
+[node name="WinLabel" type="Label" parent="Control/GameEndPanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -24.0
+offset_right = 256.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_r7qh3")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 64
+text = "You win!"
+uppercase = true
+
+[node name="LoseLabel" type="Label" parent="Control/GameEndPanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -32.0
+offset_right = 256.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_r7qh3")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 64
+text = "You lose"
+uppercase = true
+
+[node name="PlayAgainButton" type="Button" parent="Control/GameEndPanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.216667
+anchor_top = 0.605
+anchor_right = 0.783333
+anchor_bottom = 0.63
+offset_top = -0.400024
+offset_bottom = -0.400085
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("5_r7qh3")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 24
+text = "Play again"
+flat = true
+metadata/_edit_use_anchors_ = true

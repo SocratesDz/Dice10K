@@ -4,16 +4,21 @@ extends Node3D
 @onready var floor_body = $Board/Body
 @onready var throw_button = %ThrowButton
 @onready var score_label = %ScoreLabel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const IMPULSE_FACTOR = 0.5
 const TORQUE_FACTOR = 0.01
+const WINNING_SCORE = 10000
 
 signal all_dice_stopped
+signal player_wins
+signal player_loses
 
 var stopped_dice = 0
 var dice: Array[Die] = []
 var turn_start = false
 var player_score = 0
+var cpu_score = 0
 
 
 func _ready():
@@ -23,8 +28,7 @@ func _ready():
 
     # Connect dice signals
     for die in dice:
-        if die is Die:
-            die.stopped.connect(_on_die_stopped)
+        die.stopped.connect(_on_die_stopped)
     
     # Complete turn when all dice have stopped
     all_dice_stopped.connect(_complete_turn)
@@ -32,9 +36,22 @@ func _ready():
     # Throw dice when tapping on button
     throw_button.pressed.connect(_throw_dice_action)
     
+    # End game signals
+    player_wins.connect(_show_end_game_ui.bind(true))
+    player_loses.connect(_show_end_game_ui.bind(false))
+    
     score_label.text = str(player_score)
     
     turn_start = true
+
+
+func _show_end_game_ui(player_won: bool):
+    animation_player.play(&"end_game")
+    if player_won:
+        animation_player.queue(&"win_text_animation")
+    else:
+        animation_player.queue(&"lose_text_animation")
+    animation_player.queue(&"show_play_again_btn")
 
 
 func _physics_process(_delta: float):
@@ -54,9 +71,7 @@ func _reset_dice():
     stopped_dice = 0
     for die in dice:
         die.thrown = false
-        # Is die thrown being reset to true?
-        # Should I disconnect the signal?
-        # die.body_entered.disconnect(_on_die_collided.bind(die))
+        # Is die.thrown being set to true after this?
 
 
 func _hide_throw_button():
@@ -70,8 +85,13 @@ func _show_throw_button():
 func _complete_turn():
     player_score += calculate_score()
     score_label.text = str(player_score)
-    _show_throw_button()
-    turn_start = true
+    if player_score >= WINNING_SCORE:
+        player_wins.emit()
+    elif cpu_score >= WINNING_SCORE:
+        player_loses.emit()
+    else:
+        _show_throw_button()
+        turn_start = true
 
 
 func _throw_dice():
@@ -94,6 +114,8 @@ func _throw_dice():
 
 func _on_die_stopped():
     stopped_dice += 1
+    # Keep a reference to the node so the die is unique. 
+    # It seems I'm getting more than one signal emission.
     if stopped_dice >= dice.size():
         all_dice_stopped.emit()
 

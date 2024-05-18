@@ -17,6 +17,7 @@ var thrown = false
 
 func _physics_process(delta):
 	if thrown and stopped_moving():
+		print("emit \"stopped!\"")
 		stopped.emit()
 		thrown = false
 

@@ -12,7 +12,8 @@ points = PackedVector3Array(0.08, 0.08, 0.0799978, 0.08, 0.08, -0.08, -0.08, 0.0
 [node name="Die" type="RigidBody3D"]
 mass = 0.4
 physics_material_override = SubResource("PhysicsMaterial_auvbn")
-max_contacts_reported = 10
+continuous_cd = true
+max_contacts_reported = 100
 contact_monitor = true
 script = ExtResource("1_0laps")
 

@@ -2,6 +2,8 @@ extends Node3D
 
 @onready var throw_point = $ThrowPoint
 @onready var floor = $Board/Body
+@onready var throw_button = %ThrowButton
+@onready var score_label = %ScoreLabel
 
 const IMPULSE_FACTOR = 0.5
 const TORQUE_FACTOR = 0.01
@@ -11,6 +13,9 @@ signal all_dice_stopped
 var stopped_dice = 0
 
 var dice: Array[Die] = []
+
+var turn_start = false
+var player_score = 0
 
 func _ready():
 	for die in $Dice.get_children():
@@ -22,12 +27,38 @@ func _ready():
 		if die is Die:
 			die.stopped.connect(_on_die_stopped)
 	
-	all_dice_stopped.connect(calculate_score)
+	# Complete turn when all dice have stopped
+	all_dice_stopped.connect(_complete_turn)
+	
+	# Throw dice when tapping on button
+	throw_button.pressed.connect(_throw_dice_action)
+	
+	score_label.text = str(player_score)
+	
+	turn_start = true
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("throw"):
-		_reset()
-		_throw_dice()
+	if turn_start and Input.is_action_just_pressed("throw"):
+		_throw_dice_action()
+
+func _throw_dice_action():
+	turn_start = false
+	_reset_dice()
+	_hide_throw_button()
+	_throw_dice()
+
+func _hide_throw_button():
+	throw_button.visible = false
+
+func _show_throw_button():
+	throw_button.visible = true
+
+func _complete_turn():
+	print("Turn is completed!")
+	player_score += calculate_score()
+	score_label.text = str(player_score)
+	_show_throw_button()
+	turn_start = true
 
 func _throw_dice():
 	# Set dice around marker throw point
@@ -47,7 +78,7 @@ func _throw_dice():
 		die.body_entered.connect(_on_die_collided.bind(die))
 
 ## Reset game state
-func _reset():
+func _reset_dice():
 	stopped_dice = 0
 	for die in dice:
 		die.thrown = false
@@ -76,6 +107,7 @@ func calculate_score() -> int:
 
 func _on_die_stopped():
 	stopped_dice += 1
+	print(stopped_dice)
 	if stopped_dice >= dice.size():
 		all_dice_stopped.emit()
 

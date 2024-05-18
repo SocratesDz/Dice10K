@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://345ud6505tyw"]
+[gd_scene load_steps=15 format=3 uid="uid://345ud6505tyw"]
 
 [ext_resource type="PackedScene" uid="uid://dmmob7v87o5e5" path="res://board.tscn" id="1_854io"]
 [ext_resource type="Script" path="res://game.gd" id="1_p874v"]
 [ext_resource type="PackedScene" uid="uid://d0kyw2f1lxeug" path="res://die.tscn" id="2_82f15"]
 [ext_resource type="AudioStream" uid="uid://c8ot06nvompvc" path="res://assets/music/Electro Chill A.mp3" id="4_m1fk6"]
+[ext_resource type="Theme" uid="uid://63u8edwr4kjv" path="res://resources/ui_theme.tres" id="5_r7qh3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5a2gb"]
 size = Vector3(0.2, 3, 6)
@@ -121,3 +122,53 @@ environment = SubResource("Environment_4vi5i")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_m1fk6")
 autoplay = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ThrowButton" type="Button" parent="Control/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("5_r7qh3")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 80
+text = "Throw"
+flat = true
+
+[node name="ScoreLabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -30.0
+offset_right = 40.0
+offset_bottom = -25.0
+grow_vertical = 0
+theme = ExtResource("5_r7qh3")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 42
+text = "0"

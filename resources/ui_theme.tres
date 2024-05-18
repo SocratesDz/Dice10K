@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://63u8edwr4kjv"]
+
+[ext_resource type="FontFile" uid="uid://dtdw0u5f4g13s" path="res://assets/fonts/public-pixel-font/PublicPixel-E447g.ttf" id="1_p8jso"]
+
+[resource]
+default_font = ExtResource("1_p8jso")

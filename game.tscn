@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://345ud6505tyw"]
+[gd_scene load_steps=14 format=3 uid="uid://345ud6505tyw"]
 
 [ext_resource type="PackedScene" uid="uid://dmmob7v87o5e5" path="res://board.tscn" id="1_854io"]
 [ext_resource type="Script" path="res://game.gd" id="1_p874v"]
 [ext_resource type="PackedScene" uid="uid://d0kyw2f1lxeug" path="res://die.tscn" id="2_82f15"]
+[ext_resource type="AudioStream" uid="uid://c8ot06nvompvc" path="res://assets/music/Electro Chill A.mp3" id="4_m1fk6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5a2gb"]
 size = Vector3(0.2, 3, 6)
@@ -42,11 +43,11 @@ script = ExtResource("1_p874v")
 transform = Transform3D(1, 0, 0, 0, 0.261701, 0.965149, 0, -0.965149, 0.261701, 0, 2.50689, 0.483824)
 current = true
 
-[node name="DirectionalLight3D" type="SpotLight3D" parent="."]
+[node name="Spotlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.05526, -0.343928)
 spot_angle = 66.7518
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.14294, 0.989731, 0, -0.989731, -0.14294, 0, 0, 0)
 
 [node name="Dice" type="Node3D" parent="."]
@@ -116,3 +117,7 @@ shape = SubResource("ConcavePolygonShape3D_vqoud")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4vi5i")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m1fk6")
+autoplay = true

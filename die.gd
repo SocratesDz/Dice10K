@@ -13,13 +13,7 @@ signal stopped
 	$Faces/RayCast3D6: 6
 }
 
-var thrown = false
-
-func _physics_process(delta):
-	if thrown and stopped_moving():
-		print("emit \"stopped!\"")
-		stopped.emit()
-		thrown = false
+@export var thrown = false
 
 ## Return the value of the dice. If no face is strictly up, returns 0.
 func get_value() -> int:
@@ -32,6 +26,3 @@ func get_value() -> int:
 		return face_value_map[face_up]
 	else: 
 		return 0
-
-func stopped_moving() -> bool:
-	return linear_velocity.length_squared() < 0.001

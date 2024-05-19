@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://345ud6505tyw"]
+[gd_scene load_steps=22 format=3 uid="uid://345ud6505tyw"]
 
 [ext_resource type="PackedScene" uid="uid://dmmob7v87o5e5" path="res://board.tscn" id="1_854io"]
 [ext_resource type="Script" path="res://game.gd" id="1_p874v"]
 [ext_resource type="PackedScene" uid="uid://d0kyw2f1lxeug" path="res://die.tscn" id="2_82f15"]
 [ext_resource type="Theme" uid="uid://63u8edwr4kjv" path="res://resources/ui_theme.tres" id="5_r7qh3"]
 [ext_resource type="StyleBox" uid="uid://c4xxkp3i7kq2m" path="res://resources/ui_panel_background.tres" id="6_5l1b3"]
+[ext_resource type="AudioStream" uid="uid://x86qd6drqbsu" path="res://assets/sounds/pickupCoin.wav" id="6_ae7tc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5a2gb"]
 size = Vector3(0.2, 3, 6)
@@ -327,8 +328,11 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.24,
 [node name="Die6" parent="Dice" instance=ExtResource("2_82f15")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.24, 0.085, 0.24)
 
-[node name="ThrowPoint" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56594, 1.11842)
+[node name="PlayerThrowPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46594, 1.11842)
+
+[node name="CPUThrowPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46594, -2.38158)
 
 [node name="Walls" type="Node3D" parent="."]
 
@@ -353,7 +357,7 @@ mesh = SubResource("BoxMesh_qpvr2")
 shape = SubResource("ConcavePolygonShape3D_oi5ip")
 
 [node name="SouthWall4" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/SouthWall4"]
 visible = false
@@ -415,7 +419,20 @@ theme_override_font_sizes/font_size = 80
 text = "Throw"
 flat = true
 
-[node name="ScoreLabel" type="Label" parent="HUD"]
+[node name="CPUScoreLabel" type="Label" parent="HUD"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 40.0
+offset_bottom = 16.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 48
+text = "0"
+
+[node name="PlayerScoreLabel" type="Label" parent="HUD"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -452,10 +469,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 104.0
-offset_top = 616.0
-offset_right = 616.0
-offset_bottom = 680.0
+offset_left = -256.0
+offset_top = -24.0
+offset_right = 256.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -473,10 +490,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 104.0
-offset_top = 608.0
-offset_right = 616.0
-offset_bottom = 672.0
+offset_left = -256.0
+offset_top = -32.0
+offset_right = 256.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -505,3 +522,6 @@ theme_override_font_sizes/font_size = 24
 text = "Play again"
 flat = true
 metadata/_edit_use_anchors_ = true
+
+[node name="ScoreSfxAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ae7tc")

@@ -135,11 +135,19 @@ func _throw_dice():
 			TurnType.CPU:
 				turn_direction_modifier = -1
 				dice_target_position = cpu_throw_point.position
-		# Position dice horizontally in linear fashion
-		var margin_x = 0.20
-		die.position = dice_target_position + \
-			((i - dice.size()/2) * Vector3(margin_x, 0, 0))
-		die.rotation = Vector3.ZERO
+		
+		# Position dice in a circular pattern around the marker point
+		var margin = 0.25
+		var horizontal_angle = (i * TAU)/dice.size()
+		var vertical_angle = PI/3 * turn_direction_modifier
+		var offset = Vector3.UP * margin
+		var final_position = dice_target_position + offset\
+			.rotated(Vector3.FORWARD, horizontal_angle)\
+			.rotated(Vector3.LEFT, vertical_angle)
+		die.position = final_position
+		
+		# Set initial random rotation
+		die.rotation = Vector3(randf_range(-PI, PI), randf_range(-PI, PI), randf_range(-PI, PI))
 		
 		die.set_linear_velocity(Vector3.ZERO)
 		# Apply impulse forward

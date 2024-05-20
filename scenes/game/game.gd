@@ -13,7 +13,7 @@ extends Node3D
 @onready var score_sfx_audio_player: AudioStreamPlayer = $ScoreSfxAudioPlayer
 @onready var camera_3d: Camera3D = $Camera3D
 
-@onready var scoring_label_scene = preload("res://scoring_label.tscn")
+@onready var scoring_label_scene = preload("res://scenes/scoring_label/scoring_label.tscn")
 
 const IMPULSE_FACTOR = 1.2
 const TORQUE_FACTOR = 0.05

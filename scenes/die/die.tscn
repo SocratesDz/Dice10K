@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0kyw2f1lxeug"]
 
-[ext_resource type="Script" path="res://die.gd" id="1_0laps"]
-[ext_resource type="PackedScene" uid="uid://beucdsyx513mr" path="res://assets/models/die/die_model.glb" id="2_ar7o1"]
+[ext_resource type="Script" path="res://scenes/die/die.gd" id="1_sa8df"]
+[ext_resource type="PackedScene" uid="uid://beucdsyx513mr" path="res://assets/models/die/die_model.glb" id="2_c5v0u"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_auvbn"]
 bounce = 0.35
@@ -15,9 +15,9 @@ physics_material_override = SubResource("PhysicsMaterial_auvbn")
 continuous_cd = true
 max_contacts_reported = 100
 contact_monitor = true
-script = ExtResource("1_0laps")
+script = ExtResource("1_sa8df")
 
-[node name="DieModel" parent="." instance=ExtResource("2_ar7o1")]
+[node name="DieModel" parent="." instance=ExtResource("2_c5v0u")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_db0bc")

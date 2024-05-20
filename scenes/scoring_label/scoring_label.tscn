@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2xxl7dr176sy"]
 
-[ext_resource type="Theme" uid="uid://63u8edwr4kjv" path="res://resources/ui_theme.tres" id="1_jayio"]
-[ext_resource type="Script" path="res://scoring_label.gd" id="2_nbtn5"]
+[ext_resource type="Theme" uid="uid://63u8edwr4kjv" path="res://resources/ui_theme.tres" id="1_kxoem"]
+[ext_resource type="Script" path="res://scenes/scoring_label/scoring_label.gd" id="2_dabpu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svb4p"]
 
@@ -41,9 +41,9 @@ _data = {
 [node name="ScoringLabel" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-theme = ExtResource("1_jayio")
+theme = ExtResource("1_kxoem")
 theme_type_variation = &"small"
-script = ExtResource("2_nbtn5")
+script = ExtResource("2_dabpu")
 score_amount_text = null
 score_name_text = null
 
@@ -55,7 +55,7 @@ offset_bottom = 44.0
 [node name="ScoreText" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("1_jayio")
+theme = ExtResource("1_kxoem")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
@@ -71,7 +71,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_svb4p")
 [node name="ScoreName" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("1_jayio")
+theme = ExtResource("1_kxoem")
 theme_type_variation = &"TooltipLabel"
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8

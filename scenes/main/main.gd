@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var start_button: Button = %StartButton
-@onready var game_scene = preload("res://game.tscn") 
+@onready var game_scene = preload("res://scenes/game/game.tscn") 
 @onready var main_menu: Control = $MainMenu
 
 var game_node: Game = null

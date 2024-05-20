@@ -347,7 +347,7 @@ mesh = SubResource("BoxMesh_5a2gb")
 shape = SubResource("ConcavePolygonShape3D_wpil2")
 
 [node name="NorthWall" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.7)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/NorthWall"]
 visible = false

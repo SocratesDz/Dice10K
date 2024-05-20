@@ -1,3 +1,5 @@
+![cover](./docs/cover.png)
+
 # Dice 10K
 
 Welcome to Dice 10K! This is a dice game developed using the Godot 4 game 
